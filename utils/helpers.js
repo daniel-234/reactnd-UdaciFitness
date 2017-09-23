@@ -130,7 +130,7 @@ export function getMetricMetaInfo(metric) {
       getIcon() {
         return (
           <View>
-            <MaterialIcons
+            <FontAwesome
               name='bed'
               color={'black'}
               size={35}

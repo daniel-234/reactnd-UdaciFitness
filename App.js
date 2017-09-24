@@ -23,6 +23,7 @@ export default class App extends React.Component {
            */
         }
         <View style={{flex: 1}}>
+          <View style={{height: 20}} />
           <History />
         </View>
       </Provider>

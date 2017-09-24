@@ -24,7 +24,6 @@ function SubmitBtn ({ onPress }) {
     </TouchableOpacity>
   )
 }
-
 class AddEntry extends Component {
   state = {
     run: 0,

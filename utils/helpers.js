@@ -3,6 +3,12 @@ import { View, StyleSheet } from 'react-native'
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { red, orange, blue, lightPurp, pink, white } from './colors'
 
+export function getDailyReminderValue () {
+  return {
+    today: "👋 Don't forget to log your data today!"
+  }
+}
+
 const styles = StyleSheet.create({
   iconContainer: {
     padding: 5,
@@ -14,6 +20,106 @@ const styles = StyleSheet.create({
     marginRight: 20
   },
 })
+
+export function getMetricMetaInfo (metric) {
+  const info = {
+    run: {
+      displayName: 'Run',
+      max: 50,
+      unit: 'miles',
+      step: 1,
+      type: 'steppers',
+      getIcon() {
+        return (
+          <View style={[styles.iconContainer, {backgroundColor: red}]}>
+            <MaterialIcons
+              name='directions-run'
+              color={white}
+              size={35}
+            />
+          </View>
+        )
+      }
+    },
+    bike: {
+      displayName: 'Bike',
+      max: 100,
+      unit: 'miles',
+      step: 1,
+      type: 'steppers',
+      getIcon() {
+        return (
+          <View style={[styles.iconContainer, {backgroundColor: orange}]}>
+            <MaterialCommunityIcons
+              name='bike'
+              color={white}
+              size={32}
+            />
+          </View>
+        )
+      }
+    },
+    swim: {
+      displayName: 'Swim',
+      max: 9900,
+      unit: 'meters',
+      step: 100,
+      type: 'steppers',
+      getIcon() {
+        return (
+          <View style={[styles.iconContainer, {backgroundColor: blue}]}>
+            <MaterialCommunityIcons
+              name='swim'
+              color={white}
+              size={35}
+            />
+          </View>
+        )
+      }
+    },
+    sleep: {
+      displayName: 'Sleep',
+      max: 24,
+      unit: 'hours',
+      step: 1,
+      type: 'slider',
+      getIcon() {
+        return (
+          <View style={[styles.iconContainer, {backgroundColor: lightPurp}]}>
+            <FontAwesome
+              name='bed'
+              color={white}
+              size={30}
+            />
+          </View>
+        )
+      }
+    },
+    eat: {
+      displayName: 'Eat',
+      max: 10,
+      unit: 'rating',
+      step: 1,
+      type: 'slider',
+      getIcon() {
+        return (
+          <View style={[styles.iconContainer, {backgroundColor: pink}]}>
+            <MaterialCommunityIcons
+              name='food'
+              color={white}
+              size={35}
+            />
+          </View>
+        )
+      }
+    },
+  }
+
+  return typeof metric === 'undefined'
+    ? info
+    : info[metric]
+}
+
 
 export function isBetween (num, x, y) {
   if (num >= x && num <= y) {
@@ -55,133 +161,4 @@ export function timeToString (time = Date.now()) {
   const date = new Date(time)
   const todayUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
   return todayUTC.toISOString().split('T')[0]
-}
-
-export function getMetricMetaInfo(metric) {
-  /*
-   * This object is going to contain any information  that is going
-   * to help us build the UI for our specific form.
-   */
-  const info = {
-    run: {
-      displayName: 'Run',
-      max: 50,
-      unit: 'miles',
-      step: 1,
-      type: 'steppers',
-      /*
-       * When we're going to invoke this function, we want to get back
-       * the icon for this specific metric.
-       */
-      getIcon() {
-        return (
-          <View style={[styles.iconContainer, {backgroundColor: red}]}>
-            <MaterialIcons
-              name='directions-run'
-              color={'white'}
-              size={35}
-            />
-          </View>
-        )
-      }
-    },
-    bike: {
-      displayName: 'Bike',
-      max: 100,
-      unit: 'miles',
-      step: 1,
-      type: 'steppers',
-      /*
-       * When we're going to invoke this function, we want to get back
-       * the icon for this specific metric.
-       */
-      getIcon() {
-        return (
-          <View style={[styles.iconContainer, {backgroundColor: orange}]}>
-            <MaterialCommunityIcons
-              name='bike'
-              color={'white'}
-              size={35}
-            />
-          </View>
-        )
-      }
-    },
-    swim: {
-      displayName: 'Swim',
-      max: 9900,
-      unit: 'meters',
-      step: 100,
-      type: 'steppers',
-      /*
-       * When we're going to invoke this function, we want to get back
-       * the icon for this specific metric.
-       */
-      getIcon() {
-        return (
-          <View style={[styles.iconContainer, {backgroundColor: blue}]}>
-            <MaterialCommunityIcons
-              name='swim'
-              color={'white'}
-              size={35}
-            />
-          </View>
-        )
-      }
-    },
-    sleep: {
-      displayName: 'Sleep',
-      max: 24,
-      unit: 'hours',
-      step: 1,
-      type: 'slider',
-      /*
-       * When we're going to invoke this function, we want to get back
-       * the icon for this specific metric.
-       */
-      getIcon() {
-        return (
-          <View style={[styles.iconContainer, {backgroundColor: lightPurp}]}>
-            <FontAwesome
-              name='bed'
-              color={'white'}
-              size={35}
-            />
-          </View>
-        )
-      }
-    },
-    eat: {
-      displayName: 'Eat',
-      max: 10,
-      unit: 'rating',
-      step: 1,
-      type: 'slider',
-      /*
-       * When we're going to invoke this function, we want to get back
-       * the icon for this specific metric.
-       */
-      getIcon() {
-        return (
-          <View style={[styles.iconContainer, {backgroundColor: pink}]}>
-            <MaterialCommunityIcons
-              name='food'
-              color={'white'}
-              size={35}
-            />
-          </View>
-        )
-      }
-    }
-  }
-
-  return typeof metric === 'undefined'
-    ? info
-    : info[metric]
-}
-
-export function getDailyReminderValue () {
-  return {
-    today: "👋 Don't forget to log your data today!"
-  }
 }

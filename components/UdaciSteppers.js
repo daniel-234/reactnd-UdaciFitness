@@ -3,9 +3,9 @@ import { Platform, View, TouchableOpacity, Text, StyleSheet } from 'react-native
 import { FontAwesome, Entypo } from '@expo/vector-icons'
 import { purple, gray, white } from '../utils/colors'
 
-export default function UdaciSteppers({ max, unit, step, value, onIncrement, onDecrement }) {
-	return (
-		<View style={[styles.row, {justifyContent: 'space-between'}]}>
+export default function UdaciSteppers ({ max, unit, step, value, onIncrement, onDecrement }) {
+  return (
+    <View style={[styles.row, {justifyContent: 'space-between'}]}>
       {Platform.OS === 'ios'
         ? <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
@@ -30,9 +30,9 @@ export default function UdaciSteppers({ max, unit, step, value, onIncrement, onD
       <View style={styles.metricCounter}>
         <Text style={{fontSize: 24, textAlign: 'center'}}>{value}</Text>
         <Text style={{fontSize: 18, color: gray}}>{unit}</Text>
-			</View>
-		</View>
-	)
+      </View>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({

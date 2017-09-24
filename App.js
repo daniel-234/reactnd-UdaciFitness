@@ -13,7 +13,15 @@ export default class App extends React.Component {
        * insed a Provider.
        */
       <Provider store={createStore(reducer)}>
-        <View>
+        {
+          /*
+           * We want this component to take up all the available space
+           * so that any children components will be able to expand the
+           * full size of the phone.
+           * Without this, that wouldn't be possible.
+           */
+        }
+        <View style={{flex: 1}}>
           <AddEntry />
         </View>
       </Provider>

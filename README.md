@@ -1,6 +1,14 @@
+# About
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
+
+## Note
+
+This app has not been built by me, but is instead an in class project, developed by the React Training Team for the Udacity Nanodegree `React Development Nanodegree`. I wrote it again line by line while following their classes to learn the material about React Native.
+The original project can be found at [GitHub - Udacity](https://github.com/udacity/reactnd-UdaciFitness-complete).
+
 
 ## Table of Contents
 

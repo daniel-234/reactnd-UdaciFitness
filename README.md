@@ -7,7 +7,7 @@ Below you'll find information about performing common tasks. The most recent ver
 ## Note
 
 This app has not been built by me, but is instead an in class project, developed by the React Training Team for the [Udacity React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019).
-I wrote it again line by line while following their classes to learn the material about React Native.
+I built it again taking the instructor code while following his classes in the React Native Course. He guided students step by step in building a complete React Native application and explaining what each piece can add to an application in a real world scenario.
 The original project can be found at [GitHub - Udacity](https://github.com/udacity/reactnd-UdaciFitness-complete).
 
 

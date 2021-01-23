@@ -1,3 +1,7 @@
+# Update
+
+This project is not maintained anymore and it has been archived. 
+
 # About
 
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
